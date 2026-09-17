@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Ryan Amponsah | RyanVisuals</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="index.html" class="site-nav__logo">Ryan Amponsah</a>
+      <ul class="site-nav__list">
+        <li class="site-nav__item"><a href="index.html" class="site-nav__link">Home</a></li>
+        <li class="site-nav__item"><a href="projects.html" class="site-nav__link">Projects</a></li>
+        <li class="site-nav__item"><a href="contact.html" class="site-nav__link" aria-current="page">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌓</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="contact">
+      <h1 class="contact__title">Get in touch</h1>
+      <p class="contact__intro">Have a project in mind? Send a message and I'll get back to you.</p>
+
+      <form class="contact__form" id="contact-form" novalidate>
+        <div class="contact__field">
+          <label for="name" class="contact__label">Name</label>
+          <input type="text" id="name" name="name" class="contact__input">
+          <span class="contact__error" id="name-error" aria-live="polite"></span>
+        </div>
+
+        <div class="contact__field">
+          <label for="email" class="contact__label">Email</label>
+          <input type="email" id="email" name="email" class="contact__input">
+          <span class="contact__error" id="email-error" aria-live="polite"></span>
+        </div>
+
+        <div class="contact__field">
+          <label for="message" class="contact__label">Message</label>
+          <textarea id="message" name="message" class="contact__textarea" rows="6"></textarea>
+          <span class="contact__error" id="message-error" aria-live="polite"></span>
+        </div>
+
+        <button type="submit" class="contact__submit">Send message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="site-footer__text">&copy; 2026 Ryan Amponsah— RyanVisuals</p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
