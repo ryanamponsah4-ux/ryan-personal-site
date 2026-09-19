@@ -1,0 +1,777 @@
+/* ==========================================================================
+   Custom Properties — single source of truth for colors, spacing, type
+   ========================================================================== */
+:root {
+  /* Colors — light mode (default) */
+  --color-bg: #ffffff;
+  --color-surface: #f4f4f5;
+  --color-text: #1a1a1a;
+  --color-text-muted: #5a5a5a;
+  --color-primary: #2b6cb0;
+  --color-primary-hover: #1e4e80;
+  --color-border: #d9d9d9;
+  --color-error: #c0392b;
+  --color-focus: #2b6cb0;
+
+  /* Spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+
+  /* Typography */
+  --font-base: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-md: 1.25rem;
+  --font-size-lg: 2rem;
+  --font-size-xl: 3rem;
+
+  /* Layout */
+  --max-width: 1200px;
+  --radius: 6px;
+}
+
+/* Dark mode — applied when JS sets data-theme="dark" on <html> */
+[data-theme="dark"] {
+  --color-bg: #121212;
+  --color-surface: #1e1e1e;
+  --color-text: #f0f0f0;
+  --color-text-muted: #a8a8a8;
+  --color-primary: #6ea8dc;
+  --color-primary-hover: #8fbce6;
+  --color-border: #333333;
+  --color-error: #ff6b5e;
+  --color-focus: #6ea8dc;
+}
+
+/* Respect system preference before JS/localStorage decision is applied */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #121212;
+    --color-surface: #1e1e1e;
+    --color-text: #f0f0f0;
+    --color-text-muted: #a8a8a8;
+    --color-primary: #6ea8dc;
+    --color-primary-hover: #8fbce6;
+    --color-border: #333333;
+    --color-error: #ff6b5e;
+    --color-focus: #6ea8dc;
+  }
+}
+
+/* ==========================================================================
+   Base / Reset
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-base);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+/* Visible focus state everywhere — required for keyboard-only use */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Site Header / Nav — flexbox (suits nav: items sit in a single row,
+   need even spacing and alignment, order rarely changes)
+   ========================================================================== */
+.site-header {
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-sm) var(--space-md);
+}
+
+.site-nav__logo {
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.site-nav__list {
+  display: flex;
+  gap: var(--space-md);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav__link {
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+}
+
+.site-nav__link:hover,
+.site-nav__link[aria-current="page"] {
+  color: var(--color-primary);
+}
+
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-xs);
+  cursor: pointer;
+  font-size: var(--font-size-base);
+}
+
+/* ==========================================================================
+   Hero / About (Home page)
+   ========================================================================== */
+.hero {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+  text-align: center;
+}
+
+.hero__title {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-sm);
+}
+
+.hero__subtitle {
+  font-size: var(--font-size-md);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+}
+
+.hero__cta {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: #fff;
+  text-decoration: none;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius);
+}
+
+.hero__cta:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.about {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
+}
+
+.about__title {
+  font-size: var(--font-size-md);
+  margin-bottom: var(--space-sm);
+}
+
+.about__text {
+  color: var(--color-text-muted);
+  max-width: 65ch;
+}s/* ==========================================================================
+   Custom Properties — single source of truth for colors, spacing, type
+   ========================================================================== */
+:root {
+  /* Colors — light mode (default) */
+  --color-bg: #ffffff;
+  --color-surface: #f4f4f5;
+  --color-text: #1a1a1a;
+  --color-text-muted: #5a5a5a;
+  --color-primary: #2b6cb0;
+  --color-primary-hover: #1e4e80;
+  --color-border: #d9d9d9;
+  --color-error: #c0392b;
+  --color-focus: #2b6cb0;
+
+  /* Spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+
+  /* Typography */
+  --font-base: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-md: 1.25rem;
+  --font-size-lg: 2rem;
+  --font-size-xl: 3rem;
+
+  /* Layout */
+  --max-width: 1200px;
+  --radius: 6px;
+}
+
+/* Dark mode — applied when JS sets data-theme="dark" on <html> */
+[data-theme="dark"] {
+  --color-bg: #121212;
+  --color-surface: #1e1e1e;
+  --color-text: #f0f0f0;
+  --color-text-muted: #a8a8a8;
+  --color-primary: #6ea8dc;
+  --color-primary-hover: #8fbce6;
+  --color-border: #333333;
+  --color-error: #ff6b5e;
+  --color-focus: #6ea8dc;
+}
+
+/* Respect system preference before JS/localStorage decision is applied */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #121212;
+    --color-surface: #1e1e1e;
+    --color-text: #f0f0f0;
+    --color-text-muted: #a8a8a8;
+    --color-primary: #6ea8dc;
+    --color-primary-hover: #8fbce6;
+    --color-border: #333333;
+    --color-error: #ff6b5e;
+    --color-focus: #6ea8dc;
+  }
+}
+
+/* ==========================================================================
+   Base / Reset
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-base);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+/* Visible focus state everywhere — required for keyboard-only use */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Site Header / Nav — flexbox (suits nav: items sit in a single row,
+   need even spacing and alignment, order rarely changes)
+   ========================================================================== */
+.site-header {
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-sm) var(--space-md);
+}
+
+.site-nav__logo {
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.site-nav__list {
+  display: flex;
+  gap: var(--space-md);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav__link {
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+}
+
+.site-nav__link:hover,
+.site-nav__link[aria-current="page"] {
+  color: var(--color-primary);
+}
+
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-xs);
+  cursor: pointer;
+  font-size: var(--font-size-base);
+}
+
+/* ==========================================================================
+   Hero / About (Home page)
+   ========================================================================== */
+.hero {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+  text-align: center;
+}
+
+.hero__title {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-sm);
+}
+
+.hero__subtitle {
+  font-size: var(--font-size-md);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+}
+
+.hero__cta {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: #fff;
+  text-decoration: none;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius);
+}
+
+.hero__cta:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.about {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
+}
+
+.about__title {
+  font-size: var(--font-size-md);
+  margin-bottom: var(--space-sm);
+}
+
+.about__text {
+  color: var(--color-text-muted);
+  max-width: 65ch;
+}
+
+/* ==========================================================================
+   Projects page — CSS Grid (suits cards: two-dimensional layout, need
+   equal-width columns that reflow by count, not a single-axis flow)
+   ========================================================================== */
+.projects {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
+}
+
+.projects__title {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-md);
+}
+
+.projects__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  align-items: end;
+  margin-bottom: var(--space-lg);
+}
+
+.projects__label {
+  display: block;
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.projects__search,
+.projects__filter {
+  font-family: inherit;
+  font-size: var(--font-size-base);
+  padding: var(--space-xs);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.projects__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+/* Project card — classes ready for JS-rendered cards */
+.project-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0;
+}
+
+.project-card__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.project-card__body {
+  padding: var(--space-sm);
+}
+
+.project-card__title {
+  font-size: var(--font-size-md);
+  margin: 0 0 var(--space-xs);
+}
+
+.project-card__category {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   Contact page
+   ========================================================================== */
+.contact {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
+}
+
+.contact__title {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-xs);
+}
+
+.contact__intro {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.contact__field {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact__label {
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.contact__input,
+.contact__textarea {
+  font-family: inherit;
+  font-size: var(--font-size-base);
+  padding: var(--space-xs);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.contact__error {
+  color: var(--color-error);
+  font-size: var(--font-size-sm);
+  min-height: 1.2em;
+}
+
+.contact__submit {
+  align-self: flex-start;
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius);
+  font-size: var(--font-size-base);
+  cursor: pointer;
+}
+
+.contact__submit:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+  text-align: center;
+  padding: var(--space-md);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+/* ==========================================================================
+   Responsive breakpoints
+   ========================================================================== */
+
+/* Small — 320px baseline is the default above (mobile-first, single column) */
+
+/* Tablet — 768px and up */
+@media (min-width: 768px) {
+  .projects__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero__title {
+    font-size: 2.5rem;
+  }
+}
+
+/* Desktop — 1440px and up */
+@media (min-width: 1440px) {
+  .projects__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero__title {
+    font-size: var(--font-size-xl);
+  }
+
+  .site-nav,
+  .hero,
+  .about,
+  .projects {
+    padding-left: var(--space-xl);
+    padding-right: var(--space-xl);
+  }
+}
+
+/* ==========================================================================
+   Projects page — CSS Grid (suits cards: two-dimensional layout, need
+   equal-width columns that reflow by count, not a single-axis flow)
+   ========================================================================== */
+.projects {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
+}
+
+.projects__title {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-md);
+}
+
+.projects__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  align-items: end;
+  margin-bottom: var(--space-lg);
+}
+
+.projects__label {
+  display: block;
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.projects__search,
+.projects__filter {
+  font-family: inherit;
+  font-size: var(--font-size-base);
+  padding: var(--space-xs);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.projects__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+/* Project card — classes ready for JS-rendered cards */
+.project-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0;
+}
+
+.project-card__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.project-card__body {
+  padding: var(--space-sm);
+}
+
+.project-card__title {
+  font-size: var(--font-size-md);
+  margin: 0 0 var(--space-xs);
+}
+
+.project-card__category {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   Contact page
+   ========================================================================== */
+.contact {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
+}
+
+.contact__title {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-xs);
+}
+
+.contact__intro {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.contact__field {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact__label {
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.contact__input,
+.contact__textarea {
+  font-family: inherit;
+  font-size: var(--font-size-base);
+  padding: var(--space-xs);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.contact__error {
+  color: var(--color-error);
+  font-size: var(--font-size-sm);
+  min-height: 1.2em;
+}
+
+.contact__submit {
+  align-self: flex-start;
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius);
+  font-size: var(--font-size-base);
+  cursor: pointer;
+}
+
+.contact__submit:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+  text-align: center;
+  padding: var(--space-md);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+/* ==========================================================================
+   Responsive breakpoints
+   ========================================================================== */
+
+/* Small — 320px baseline is the default above (mobile-first, single column) */
+
+/* Tablet — 768px and up */
+@media (min-width: 768px) {
+  .projects__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero__title {
+    font-size: 2.5rem;
+  }
+}
+
+/* Desktop — 1440px and up */
+@media (min-width: 1440px) {
+  .projects__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero__title {
+    font-size: var(--font-size-xl);
+  }
+
+  .site-nav,
+  .hero,
+  .about,
+  .projects {
+    padding-left: var(--space-xl);
+    padding-right: var(--space-xl);
+  }
+}
