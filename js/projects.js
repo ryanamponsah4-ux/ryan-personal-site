@@ -71,3 +71,30 @@ export function renderCards(list = projects) {
 export function initProjects() {
   renderCards();
 }
+
+function filterProjects(searchTerm, category) {
+  return projects.filter(project => {
+    const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory = category === 'all' || project.category === category;
+    return matchesSearch && matchesCategory;
+  });
+}
+
+function handleFilterChange() {
+  const searchInput = document.getElementById('project-search');
+  const categorySelect = document.getElementById('project-category');
+
+  const searchTerm = searchInput.value;
+  const category = categorySelect.value;
+
+  const filtered = filterProjects(searchTerm, category);
+  renderCards(filtered);
+}
+
+function initFilterControls() {
+  const controls = document.querySelector('.projects__controls');
+  if (!controls) return;
+
+  controls.addEventListener('input', handleFilterChange);
+  controls.addEventListener('change', handleFilterChange);
+}
