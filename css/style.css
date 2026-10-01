@@ -775,3 +775,78 @@ textarea:focus-visible {
     padding-right: var(--space-xl);
   }
 }
+
+/* ==========================================================================
+   Modal
+   ========================================================================== */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal__dialog {
+  position: relative;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  border-radius: var(--radius);
+  padding: var(--space-lg);
+  max-width: 500px;
+  width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
+  z-index: 1;
+}
+
+.modal__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: var(--space-md);
+}
+
+
+.modal__close {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  background: none;
+  border: none;
+  font-size: var(--font-size-lg);
+  line-height: 1;
+  cursor: pointer;
+  color: var(--color-text);
+}
+
+.modal__title {
+  font-size: var(--font-size-md);
+  margin: 0 0 var(--space-xs);
+  padding-right: var(--space-lg);
+}
+
+.modal__category {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.modal__description {
+  color: var(--color-text);
+}
+
+
