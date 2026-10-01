@@ -1,3 +1,5 @@
+import { openModal } from './modal.js';
+
 export const projects = [
   {
     id: 1,
@@ -48,6 +50,14 @@ function createCard(project) {
       <p class="project-card__category">${project.categoryLabel}</p>
     </div>
   `;
+
+  card.addEventListener('click', () => openModal(project, card));
+  card.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      openModal(project, card);
+    }
+  });
 
   return card;
 }
