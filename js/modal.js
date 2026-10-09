@@ -34,7 +34,12 @@ export function openModal(project, cardElement) {
   document.getElementById('modal-title').textContent = project.title;
   document.getElementById('modal-category').textContent = project.categoryLabel;
   document.getElementById('modal-description').textContent = project.description;
-
+ 
+  const modalImage = document.getElementById('modal-image');
+if (modalImage) {
+  modalImage.src = project.image;
+  modalImage.alt = project.title;
+}
   modal.hidden = false;
   document.addEventListener('keydown', trapFocus);
 
