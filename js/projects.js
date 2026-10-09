@@ -84,7 +84,8 @@ export function initProjects() {
 
 function filterProjects(searchTerm, category) {
   return projects.filter(project => {
-    const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase());
+    const haystack = `${project.title} ${project.categoryLabel} ${project.description}`.toLowerCase();
+const matchesSearch = haystack.includes(searchTerm.toLowerCase());
     const matchesCategory = category === 'all' || project.category === category;
     return matchesSearch && matchesCategory;
   });
