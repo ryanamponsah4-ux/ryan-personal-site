@@ -851,4 +851,10 @@ textarea:focus-visible {
   color: var(--color-text);
 }
 
+.modal__image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  margin-bottom: var(--space-sm);
+}
 
