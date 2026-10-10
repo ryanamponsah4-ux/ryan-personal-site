@@ -46,6 +46,7 @@ function handleSubmit(event) {
    const success = document.getElementById('form-success');
 success.textContent = 'Message sent! Thank you, I will get back to you soon.';
 success.hidden = false;
+success.scrollIntoView({ behavior: 'smooth', block: 'center' });
     event.target.reset();
   }
 }
