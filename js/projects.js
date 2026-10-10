@@ -51,13 +51,7 @@ function createCard(project) {
     </div>
   `;
 
-  card.addEventListener('click', () => openModal(project, card));
-  card.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      openModal(project, card);
-    }
-  });
+  
 
   return card;
 }
@@ -78,8 +72,34 @@ export function renderCards(list = projects) {
   });
 }
 
+function initCardEvents() {
+  const grid = document.getElementById('projects-grid');
+  if (!grid) return;
+
+  const open = (card) => {
+    const project = projects.find((item) => item.id === Number(card.dataset.id));
+    if (project) openModal(project, card);
+  };
+
+  grid.addEventListener('click', (event) => {
+    const card = event.target.closest('.project-card');
+    if (card) open(card);
+  });
+
+  grid.addEventListener('keydown', (event) => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    const card = event.target.closest('.project-card');
+    if (card) {
+      event.preventDefault();
+      open(card);
+    }
+  });
+}
+
 export function initProjects() {
   renderCards();
+  initFilterControls();
+  initCardEvents();
 }
 
 function filterProjects(searchTerm, category) {
