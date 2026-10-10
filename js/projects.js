@@ -7,7 +7,7 @@ export const projects = [
     category: 'branding',
     categoryLabel: 'Branding',
     description: 'A complete visual identity concept exploring logo design, typography, color direction, and a consistent brand system.',
-    image: 'assets/images/project1.png'
+    image: 'assets/images/project1.jpg'
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export const projects = [
     category: 'marketing-advertising',
     categoryLabel: 'Marketing & Advertising Design',
     description: 'A visual campaign concept created for a school environmental event, including promotional graphics and a cohesive event identity.',
-    image: 'assets/images/project2.png'
+    image: 'assets/images/project2.jpg'
   },
   {
     id: 3,
@@ -23,7 +23,7 @@ export const projects = [
     category: 'web-development',
     categoryLabel: 'Web Development',
     description: 'A responsive personal portfolio built from scratch with semantic HTML, custom CSS, and JavaScript.',
-    image: 'assets/images/project3.png'
+    image: 'assets/images/project3.jpg'
   }
 ];
 
