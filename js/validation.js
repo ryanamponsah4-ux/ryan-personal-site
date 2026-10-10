@@ -43,7 +43,9 @@ function handleSubmit(event) {
   if (isNameValid && isEmailValid && isMessageValid) {
     // Form is valid — normally you'd send this somewhere.
     // For this project, just confirm success to the user.
-    alert('Message sent! (This is a static site demo — no backend is wired up.)');
+   const success = document.getElementById('form-success');
+success.textContent = 'Message sent! Thank you, I will get back to you soon.';
+success.hidden = false;
     event.target.reset();
   }
 }
