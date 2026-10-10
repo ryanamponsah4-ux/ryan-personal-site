@@ -549,7 +549,11 @@ textarea:focus-visible {
   text-align: center;
   padding: var(--space-md);
   color: var(--color-text-muted);
+<<<<<<< HEAD
+  font-size: var(--font-size-md);
+=======
   font-size: var(--font-size-base);
+>>>>>>> origin/main
 }
 
 /* ==========================================================================
@@ -739,8 +743,9 @@ textarea:focus-visible {
   text-align: center;
   padding: var(--space-md);
   color: var(--color-text-muted);
+
   font-size: var(--font-size-base);
-}
+ }
 
 /* ==========================================================================
    Responsive breakpoints
