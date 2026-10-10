@@ -69,9 +69,9 @@ The site is responsive at 320px, 768px and 1440px.
 | Projects | 99 | 99 | 100 | 100 |
 | Contact | 99 | 100 | 100 | 90 |
 
-![Lighthouse scores for the Home page](assets/screenshots/lighthouse-home.png)
-![Lighthouse scores for the Projects page](assets/screenshots/lighthouse-projects.png)
-![Lighthouse scores for the Contact page](assets/screenshots/lighthouse-contact.png)
+![Lighthouse scores for the Home page](assets/screenshots/lighthouse-home.jpg)
+![Lighthouse scores for the Projects page](assets/screenshots/lighthouse-projects.jpg)
+![Lighthouse scores for the Contact page](assets/screenshots/lighthouse-contact.jpg)
 
 Now what i learnt;
          
